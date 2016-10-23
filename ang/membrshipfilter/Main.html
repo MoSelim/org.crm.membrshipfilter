@@ -1,0 +1,52 @@
+<div class="crm-container">
+  <div crm-ui-debug="memberships"></div>
+
+  <form name="myForm" crm-ui-id-scope>
+
+    From <input crm-ui-datepicker="{time: false}" ng-model="membershipForm.datefieldFrom"/> To <input crm-ui-datepicker="{time: false}" ng-model="membershipForm.datefieldTo"/>
+    <table>
+        <tr>
+          <th>
+            Membership
+          </th>
+          <th>
+            Member Since
+          </th>
+          <th>
+            Start Date
+          </th>
+          <th>
+            End Date
+          </th>
+          <th>
+            Status
+          </th>
+          <th>
+            Source
+          </th>
+        </tr>
+        <tr ng-repeat="membership in memberships | filter:filterMembershipsByStartDate  | orderBy:'membership_name'" >
+          <!--  -->
+          <td>
+            {{membership.membership_name}}
+          </td>
+          <td>
+            {{membership.join_date}}
+          </td>
+          <td>
+            {{membership.start_date}}
+          </td>
+          <td>
+            {{membership.end_date}}
+          </td>
+          <td>
+            {{membership.status_id}}
+          </td>
+          <td>
+            {{membership.source}}
+          </td>
+        </tr>
+    </table>
+  </form>
+
+</div>
